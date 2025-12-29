@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Computer Science & Engineering Student at University of Bologna - Portfolio showcasing projects and skills">
+    <title>Mattia Bandini | CS & Engineering Student</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter for UI, JetBrains Mono for Code -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Background Noise Overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="glitch-wrapper">
+                    <img src="assets/foto_profilo.JPG" alt="Mattia Bandini" class="hero-avatar">
+                    <h1 class="hero-title">Mattia Bandini</h1>
+                </div>
+                <p class="hero-subtitle">Computer Science & Engineering Student @ UniBo</p>
+                <div class="hero-badge">
+                    <span class="status-dot"></span> Available for projects
+                </div>
+                <p class="hero-description">Building efficient solutions with clean code and engineering precision.</p>
+                <div class="cta-group">
+                    <a href="#contact" class="cta-button primary">
+                        Get In Touch
+                    </a>
+                    <a href="#projects" class="cta-button secondary">
+                        View Work
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section (Bento Grid Layout) -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+
+            <div class="bento-grid">
+                <!-- Block 1: Main Bio (Large) -->
+                <div class="bento-item bio-card">
+                    <div class="card-content">
+                        <h3>Engineering Mindset</h3>
+                        <p>
+                            I'm a second-year <strong>Computer Science & Engineering</strong> student at the University
+                            of Bologna.
+                            My passion lies in understanding systems from the ground up—from low-level memory management
+                            to crafting elegant modern web interfaces.
+                        </p>
+                        <p>
+                            I don't just write code; I engineer solutions that are efficient, scalable, and
+                            maintainable.
+                        </p>
+                    </div>
+                    <div class="card-decoration">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                </div>
+
+                <!-- Block 2: Education (Small) -->
+                <div class="bento-item edu-card">
+                    <div class="card-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="card-details">
+                        <span class="label">University</span>
+                        <h4>UniBo</h4>
+                        <span class="sub-label">CS & Engineering</span>
+                    </div>
+                </div>
+
+                <!-- Block 3: Stats (Small) -->
+                <div class="bento-item stat-card">
+                    <div class="stat-number">2nd</div>
+                    <div class="stat-label">Year Student</div>
+                </div>
+
+                <!-- Block 4: Focus Area (Medium) -->
+                <div class="bento-item focus-card">
+                    <h3>Focus Areas</h3>
+                    <ul class="focus-list">
+                        <li><i class="fas fa-check-circle"></i> Systems Programming</li>
+                        <li><i class="fas fa-check-circle"></i> Web Development</li>
+                        <li><i class="fas fa-check-circle"></i> Automation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section (Tech Cards) -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="tech-grid">
+                <!-- Low-Level -->
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fas fa-microchip"></i></div>
+                    <span class="tech-name">C</span>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fas fa-cogs"></i></div>
+                    <span class="tech-name">C++</span>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fab fa-java"></i></div>
+                    <span class="tech-name">Java</span>
+                </div>
+                <!-- Web -->
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fab fa-html5"></i></div>
+                    <span class="tech-name">HTML/CSS</span>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fab fa-js"></i></div>
+                    <span class="tech-name">JavaScript</span>
+                </div>
+                <!-- Data & Scripts -->
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fas fa-database"></i></div>
+                    <span class="tech-name">SQL</span>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fas fa-terminal"></i></div>
+                    <span class="tech-name">Bash</span>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fab fa-python"></i></div>
+                    <span class="tech-name">Python</span>
+                </div>
+                <!-- Tools -->
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fab fa-git-alt"></i></div>
+                    <span class="tech-name">Git</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-folder-open folder-icon"></i>
+                        <a href="#" class="github-link"><i class="fab fa-github"></i></a>
+                    </div>
+                    <h3>System Monitor</h3>
+                    <p>A C++ tool to monitor system resources in real-time with a custom dashboard.</p>
+                    <div class="tags">
+                        <span>C++</span>
+                        <span>Systems</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-folder-open folder-icon"></i>
+                        <a href="#" class="github-link"><i class="fab fa-github"></i></a>
+                    </div>
+                    <h3>Portfolio Site</h3>
+                    <p>This personal portfolio built with clean HTML/CSS and a custom dark mode design.</p>
+                    <div class="tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-folder-open folder-icon"></i>
+                        <a href="#" class="github-link"><i class="fab fa-github"></i></a>
+                    </div>
+                    <h3>Data Analyzer</h3>
+                    <p>Python script for automated data processing and visualization from CSV sources.</p>
+                    <div class="tags">
+                        <span>Python</span>
+                        <span>Data</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section (Refined GUI) -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+
+            <div class="contact-wrapper">
+                <!-- GUI Window Form -->
+                <div class="gui-window">
+                    <div class="window-header">
+                        <div class="window-controls">
+                            <span class="control red"></span>
+                            <span class="control yellow"></span>
+                            <span class="control green"></span>
+                        </div>
+                        <div class="window-title">New Message</div>
+                    </div>
+
+                    <div class="window-body">
+                        <form id="contact-form">
+                            <!-- Step 1: Identity -->
+                            <div class="form-row two-col">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                                </div>
+                            </div>
+
+                            <!-- Step 2: Service -->
+                            <div class="form-group">
+                                <label for="service_type">Topic</label>
+                                <select id="service_type" name="service_type">
+                                    <option value="collaboration">Project Collaboration</option>
+                                    <option value="web-development">Web Development</option>
+                                    <option value="other">General Inquiry</option>
+                                </select>
+                            </div>
+
+                            <!-- Step 3: Message -->
+                            <div class="form-group">
+                                <label for="project_details">Message</label>
+                                <textarea id="project_details" name="project_details"
+                                    placeholder="Write your message here..."></textarea>
+                                <div class="textarea-footer">
+                                    <span class="char-counter"><span id="char-count">0</span>/1000</span>
+                                </div>
+                            </div>
+
+                            <!-- Step 4: Action -->
+                            <div class="form-actions">
+                                <div class="status-display">
+                                    <span class="status-dot ready"></span>
+                                    <span class="status-text">Ready</span>
+                                </div>
+                                <button type="submit" class="gui-submit">
+                                    <span>./send</span>
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Simple Social Links -->
+                <div class="social-links-minimal">
+                    <a href="#" id="contact-email" class="social-pill">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                    <a href="#" id="contact-linkedin" class="social-pill">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="#" id="contact-github" class="social-pill">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Mattia Bandini. Designed with dark premium aesthetics.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
