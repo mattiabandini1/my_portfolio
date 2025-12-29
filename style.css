@@ -120,20 +120,18 @@ h4 {
     text-align: center;
 }
 
-/* UPDATED Avatar Styles */
+/* STOCKY HERO MOMENT */
 .hero-avatar {
-    width: 160px;
-    /* Increased Size */
-    height: 160px;
+    width: 220px;
+    height: 220px;
     border-radius: var(--custom-squircle);
     border: 2px solid var(--accent-border);
-    /* Cyan Glow only, no green */
-    box-shadow: 0 0 50px rgba(0, 241, 255, 0.15);
-    /* Centering */
+    /* Exact Cyan/Teal Glow match */
+    box-shadow: 0 0 60px rgba(0, 241, 255, 0.2);
     display: block;
-    margin: 0 auto 32px auto;
-    /* 32px spacing */
+    margin: 0 auto 40px auto;
     object-fit: cover;
+    object-position: center 20%;
     transition: var(--transition);
 }
 
@@ -171,10 +169,13 @@ h4 {
     gap: 8px;
     background: rgba(59, 130, 246, 0.1);
     border: 1px solid rgba(59, 130, 246, 0.2);
-    padding: 6px 12px;
+    padding: 6px 16px;
+    /* Increased padding */
     border-radius: 20px;
     font-size: 0.85rem;
-    color: var(--accent-primary);
+    color: #ffffff;
+    /* Pure white text */
+    font-weight: 500;
     margin-bottom: var(--spacing-md);
 }
 
@@ -353,14 +354,13 @@ h4 {
     padding: var(--spacing-xl) 0;
 }
 
-/* UPDATED 3x3 Grid Layout */
+/* Fluid Flexbox Layout */
 .tech-grid {
-    display: grid;
-    /* Forces exactly 3 columns of equal width */
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-md);
-    max-width: 600px;
-    /* Constrain width for neat 3x3 box */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -371,10 +371,9 @@ h4 {
     padding: var(--spacing-md);
     text-align: center;
     transition: var(--transition);
-    /* auto height/width to fill grid cell */
-    width: 100%;
-    aspect-ratio: 4/3;
-    /* Consistent shape */
+    /* Fixed size for uniform cards in flex */
+    width: 140px;
+    height: 110px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -711,18 +710,11 @@ textarea {
         font-size: 3rem;
     }
 
-    /* Mobile Grid Fix */
-    .tech-grid {
-        grid-template-columns: repeat(2, 1fr);
-        /* 2 cols on tablet */
-    }
+    /* Mobile Grid Fix - No longer needed for Flex, but can keep for container width adjustments if any */
 }
 
 @media (max-width: 480px) {
-    .tech-grid {
-        grid-template-columns: 1fr;
-        /* 1 col on mobile */
-    }
+    /* Avatar resize for minimal screens */
 
     .hero-avatar {
         width: 120px;
