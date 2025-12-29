@@ -585,6 +585,12 @@ textarea {
     transition: var(--transition);
 }
 
+/* Dropdown Option Fix */
+select option {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
 input:focus,
 select:focus,
 textarea:focus {
