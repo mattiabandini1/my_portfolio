@@ -110,61 +110,94 @@ function updateCharacterCounter() {
     }
 }
 
+// ========================================
+// EmailJS Initialization
+// ========================================
+
+// Initialize EmailJS with Public Key
+(function () {
+    emailjs.init("j7mu18A8wbHzbIqXZ");
+})();
+
 /**
- * Handles form submission (EmailJS simulation)
- * Replace this with actual EmailJS integration when ready
+ * Handles form submission with EmailJS
  */
 function handleFormSubmit(event) {
-    event.preventDefault(); // Prevent actual form submission
+    event.preventDefault(); // Prevent page reload
 
-    const submitButton = event.target.querySelector('.gui-submit');
-    const statusDot = event.target.querySelector('.status-dot');
-    const statusText = event.target.querySelector('.status-text');
+    const form = event.target;
+    const submitButton = form.querySelector('.gui-submit');
+    const statusDot = form.querySelector('.status-dot');
+    const statusText = form.querySelector('.status-text');
 
-    // Get form data
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        service_type: document.getElementById('service_type').value,
-        project_details: document.getElementById('project_details').value
-    };
+    // Store original button text
+    const originalBtnText = submitButton.innerHTML;
 
-    // Simulate sending state
+    // Update UI to "Sending..."
     if (statusText) statusText.textContent = 'Sending...';
     if (submitButton) {
         submitButton.disabled = true;
         submitButton.style.opacity = '0.7';
+        submitButton.innerHTML = '<span>Sending...</span>';
     }
 
-    console.log('📧 EmailJS Simulation - Form Data:', formData);
+    // Send form using EmailJS
+    // Service ID: service_xkz6z9g
+    // Template ID: template_7am8ns9
+    emailjs.sendForm('service_xkz6z9g', 'template_7am8ns9', form)
+        .then(function () {
+            // SUCCESS
+            console.log('✅ Email sent successfully!');
 
-    // Simulate network delay
-    setTimeout(() => {
-        // Success simulation
-        if (statusDot) {
-            statusDot.classList.remove('ready');
-            statusDot.style.background = '#28c840';
-        }
-        if (statusText) statusText.textContent = 'Sent!';
-
-        // Show success message
-        alert('✅ Application Simulation: Message sent successfully!\n\n(Configure EmailJS to make this functional)');
-
-        console.log('✅ EmailJS simulation complete');
-
-        // Reset form after delay
-        setTimeout(() => {
-            event.target.reset();
-            populateFormWithExampleData();
-            if (statusText) statusText.textContent = 'Ready';
-            if (statusDot) statusDot.classList.add('ready');
-            if (submitButton) {
-                submitButton.disabled = false;
-                submitButton.style.opacity = '1';
+            if (statusDot) {
+                statusDot.classList.remove('ready');
+                statusDot.style.background = '#28c840';
             }
-        }, 2000);
+            if (statusText) statusText.textContent = 'Sent!';
+            if (submitButton) {
+                submitButton.innerHTML = '<span>Sent!</span> <i class="fas fa-check"></i>';
+            }
 
-    }, 1500);
+            alert('✅ Message sent successfully! I will get back to you soon.');
+
+            // Reset form after 3 seconds
+            setTimeout(() => {
+                form.reset();
+                updateCharacterCounter(); // Reset counter to 0
+
+                if (statusText) statusText.textContent = 'Ready';
+                if (statusDot) {
+                    statusDot.classList.add('ready');
+                    statusDot.style.background = '';
+                }
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.style.opacity = '1';
+                    submitButton.innerHTML = originalBtnText;
+                }
+            }, 3000);
+
+        }, function (error) {
+            // ERROR
+            console.error('❌ EmailJS Error:', error);
+
+            if (statusText) statusText.textContent = 'Error';
+            if (submitButton) {
+                submitButton.innerHTML = '<span>Error</span> <i class="fas fa-times"></i>';
+            }
+
+            alert('❌ Failed to send message. Please try again or email me directly at info@mattiabandini.com');
+
+            // Re-enable button
+            setTimeout(() => {
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.style.opacity = '1';
+                    submitButton.innerHTML = originalBtnText;
+                }
+                if (statusText) statusText.textContent = 'Ready';
+            }, 3000);
+        });
 }
 
 // ========================================
