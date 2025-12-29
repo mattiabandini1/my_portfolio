@@ -571,6 +571,7 @@ h4 {
     flex: 1;
 }
 
+/* Input Styling */
 input,
 select,
 textarea {
@@ -590,6 +591,17 @@ textarea:focus {
     outline: none;
     border-color: var(--accent-primary);
     background: rgba(255, 255, 255, 0.05);
+}
+
+/* Placeholder Styling - High Contrast */
+input::placeholder,
+textarea::placeholder {
+    color: #a1a1aa;
+    /* Light Gray */
+    opacity: 1;
+    /* Firefox fix */
+    font-style: italic;
+    /* UX Improvement */
 }
 
 textarea {

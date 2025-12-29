@@ -68,16 +68,23 @@ function populateFormWithExampleData() {
     const form = document.getElementById('contact-form');
 
     if (form) {
-        // Set example values
-        document.getElementById('name').value = 'Guest User';
-        document.getElementById('email').value = 'guest@example.com';
-        document.getElementById('service_type').value = 'web-development';
-        document.getElementById('project_details').value = 'I\'m interested in collaborating on a project. Looking forward to discussing the details with you!';
+        // Set placeholders (not values) for better UX
+        document.getElementById('name').placeholder = 'Guest User';
+        document.getElementById('name').value = ''; // Ensure empty to show placeholder
 
-        // Update character counter
+        document.getElementById('email').placeholder = 'guest@example.com';
+        document.getElementById('email').value = '';
+
+        // Select stays as is or default
+        document.getElementById('service_type').value = 'web-development';
+
+        document.getElementById('project_details').placeholder = 'I\'m interested in collaborating on a project. Looking forward to discussing the details with you!';
+        document.getElementById('project_details').value = '';
+
+        // Update character counter (will be 0)
         updateCharacterCounter();
 
-        console.log('✅ Form pre-populated with example data');
+        console.log('✅ Form initialized with placeholders');
     }
 }
 
