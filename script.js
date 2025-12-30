@@ -35,7 +35,13 @@ function injectContactData() {
     const emailElements = document.querySelectorAll('#contact-email, #footer-email');
     emailElements.forEach(el => {
         el.href = `mailto:${SITE_CONFIG.email}`;
-        el.textContent = el.id === 'contact-email' ? SITE_CONFIG.email : '';
+        // Preserve icon, update text
+        const icon = el.querySelector('i');
+        if (icon) {
+            el.innerHTML = `<i class="${icon.className}"></i> ${SITE_CONFIG.email}`;
+        } else {
+            el.textContent = SITE_CONFIG.email;
+        }
         el.title = SITE_CONFIG.email;
     });
 
@@ -43,6 +49,11 @@ function injectContactData() {
     const linkedinElements = document.querySelectorAll('#contact-linkedin, #footer-linkedin');
     linkedinElements.forEach(el => {
         el.href = SITE_CONFIG.linkedin_url;
+        // Preserve icon, use fixed display name
+        const icon = el.querySelector('i');
+        if (icon) {
+            el.innerHTML = `<i class="${icon.className}"></i> Mattia Bandini`;
+        }
         el.title = 'LinkedIn Profile';
     });
 
@@ -50,7 +61,26 @@ function injectContactData() {
     const githubElements = document.querySelectorAll('#contact-github, #footer-github');
     githubElements.forEach(el => {
         el.href = SITE_CONFIG.github_url;
+        // Preserve icon, extract username from URL
+        const icon = el.querySelector('i');
+        const username = SITE_CONFIG.github_url.split('.com/')[1]?.replace('/', '') || 'GitHub';
+        if (icon) {
+            el.innerHTML = `<i class="${icon.className}"></i> ${username}`;
+        }
         el.title = 'GitHub Profile';
+    });
+
+    // Inject X (Twitter) links
+    const xElements = document.querySelectorAll('#contact-x, #footer-x');
+    xElements.forEach(el => {
+        el.href = SITE_CONFIG.x_url;
+        // Extract username
+        const urlParts = (SITE_CONFIG.x_url || '').split('.com/');
+        const username = urlParts[1] ? urlParts[1].replace(/\/$/, '') : 'X';
+
+        // Always force the icon HTML to ensure it's present
+        el.innerHTML = `<i class="fab fa-x-twitter"></i> ${username}`;
+        el.title = 'X Profile';
     });
 
     console.log('✅ Contact data injected successfully');
