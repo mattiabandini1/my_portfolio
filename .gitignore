@@ -2,10 +2,6 @@
 # Git Ignore File for Portfolio Website
 # ========================================
 
-# CRITICAL: Sensitive Configuration Files
-# This prevents your personal contact information from being committed
-config.js
-
 # ========================================
 # Operating System Files
 # ========================================
