@@ -421,16 +421,102 @@ h4 {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
-    padding: var(--spacing-lg);
+    padding: 0;
+    /* Remove padding to let frame touch edges */
     transition: var(--transition);
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .project-card:hover {
     background: var(--bg-card-hover);
     border-color: rgba(255, 255, 255, 0.15);
     transform: translateY(-4px);
+}
+
+/* ==========================================
+   WINDOW FRAME EFFECT (macOS-style)
+   ========================================== */
+
+/* Container for the entire window frame */
+.project-frame {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius) var(--radius) 0 0;
+    overflow: hidden;
+    /* Separator between frame and content */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Window titlebar with macOS-style dots */
+.window-titlebar {
+    background: #1a1a1a;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+}
+
+/* Container for the three dots */
+.window-dots {
+    display: flex;
+    gap: 6px;
+}
+
+/* Individual dots (red, yellow, green) */
+.window-dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: block;
+}
+
+.window-dots .dot.red {
+    background: #ff5f57;
+}
+
+.window-dots .dot.yellow {
+    background: #febc2e;
+}
+
+.window-dots .dot.green {
+    background: #28c840;
+}
+
+/* Project Images (inside the frame) */
+.project-image {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-image img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: var(--transition);
+}
+
+/* Hover effect: zoom image inside frame */
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+/* ==========================================
+   PROJECT CONTENT (below the frame)
+   ========================================== */
+
+.project-content {
+    padding: var(--spacing-lg);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-header {
@@ -453,13 +539,20 @@ h4 {
     color: var(--text-primary);
 }
 
+/* Project Title - Enhanced spacing and hover effect */
 .project-card h3 {
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 12px;
+    /* Increased spacing */
+    transition: var(--transition);
+}
+
+/* Hover effect: title changes to accent color */
+.project-card:hover h3 {
+    color: var(--accent-primary);
 }
 
 .project-card p {
     color: var(--text-secondary);
-    /* Contrast improved */
     font-size: 0.95rem;
     margin-bottom: var(--spacing-lg);
     flex-grow: 1;
@@ -480,53 +573,44 @@ h4 {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Project Images */
-.project-image {
-    width: 100%;
-    height: 150px;
-    overflow: hidden;
-    border-radius: var(--radius);
-    margin-bottom: var(--spacing-md);
-    background: rgba(255, 255, 255, 0.02);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+/* ==========================================
+   MAINTENANCE MODE (Enhanced Overlay)
+   ========================================== */
 
-.project-image img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    transition: var(--transition);
-}
-
-.project-card:hover .project-image img {
-    transform: scale(1.05);
-}
-
-/* Maintenance Mode Styling */
 .project-card.maintenance {
     position: relative;
-    opacity: 0.7;
-    filter: grayscale(50%);
+    opacity: 0.8;
+    filter: grayscale(60%);
     pointer-events: none;
+    /* Disable all interactions */
 }
 
+/* Disable hover effects for maintenance cards */
 .project-card.maintenance:hover {
     transform: none;
     border-color: var(--border-color);
 }
 
+.project-card.maintenance:hover h3 {
+    color: inherit;
+    /* No color change */
+}
+
+.project-card.maintenance:hover .project-image img {
+    transform: none;
+    /* No zoom */
+}
+
+/* Stronger overlay */
 .maintenance-overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(2px);
+    background: rgba(0, 0, 0, 0.85);
+    /* Increased from 0.75 */
+    backdrop-filter: blur(3px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -534,21 +618,23 @@ h4 {
     border-radius: var(--radius);
 }
 
+/* Centered badge */
 .maintenance-badge {
-    background: rgba(255, 165, 0, 0.2);
+    background: rgba(255, 165, 0, 0.25);
     border: 2px solid #ffa500;
-    padding: 12px 20px;
+    padding: 14px 24px;
     border-radius: var(--radius-sm);
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     color: #ffa500;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 12px rgba(255, 165, 0, 0.3);
 }
 
 .maintenance-badge i {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 /* ========================================
