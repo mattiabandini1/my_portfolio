@@ -5,7 +5,7 @@
 Welcome to the source code of my personal portfolio website.
 This project is a showcase of my journey as a Computer Science student and software developer, featuring my projects, skills, and background.
 
-🔗 **Live Demo:** [Inserisci qui il link di Vercel, es: https://tuonome.vercel.app]
+🔗 **Live Demo:** https://mattiabandini.com
 
 ---
 
