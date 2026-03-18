@@ -7,7 +7,7 @@
     <meta name="description"
         content="Computer Science & Engineering Student at University of Bologna - Portfolio showcasing projects and skills">
     <title>Mattia Bandini | CS & Engineering Student</title>
-    <link rel="stylesheet" href="style.css?v=2028">
+    <link rel="stylesheet" href="style.css?v=2034">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Google Fonts: Inter for UI, JetBrains Mono for Code -->
@@ -110,6 +110,10 @@
             <div class="tech-grid">
                 <!-- Low-Level -->
                 <div class="tech-card">
+                    <div class="tech-icon"><i class="fa-brands fa-rust"></i></div>
+                    <span class="tech-name">Rust</span>
+                </div>
+                <div class="tech-card">
                     <div class="tech-icon"><i class="fas fa-microchip"></i></div>
                     <span class="tech-name">C</span>
                 </div>
@@ -158,6 +162,84 @@
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
                 <!-- ============================================ -->
+                <!-- PROJECT 4: RustyKV (ACTIVE)                  -->
+                <!-- ============================================ -->
+                <div class="project-card">
+                    <!-- Window Frame with macOS-style dots -->
+                    <div class="project-frame">
+                        <div class="window-titlebar">
+                            <div class="window-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                        </div>
+                        <div class="project-image">
+                            <img src="assets/rustykv.png" alt="RustyKV Project">
+                        </div>
+                    </div>
+
+                    <div class="project-content">
+                        <div class="project-header">
+                            <i class="fas fa-folder-open folder-icon"></i>
+                            <a href="https://github.com/mattiabandini1/RustyKV" class="github-link" target="_blank"
+                                rel="noopener">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                        <h3>RustyKV</h3>
+                        <p>
+                            Built from scratch while learning Rust independently, RustyKV implements the core mechanics
+                            of an LSM-Tree
+                            featuring an interactive REPL, append-only SSTable persistence, and cascading reads.
+                        </p>
+                        <div class="tags">
+                            <span>Rust</span>
+                            <span>Storage</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================ -->
+                <!-- PROJECT 3: J-Pairwise (ACTIVE)               -->
+                <!-- ============================================ -->
+                <div class="project-card">
+                    <!-- Window Frame with macOS-style dots -->
+                    <div class="project-frame">
+                        <div class="window-titlebar">
+                            <div class="window-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                        </div>
+                        <div class="project-image">
+                            <img src="assets/J-Pairwise.png" alt="J-Pairwise Project">
+                        </div>
+                    </div>
+
+                    <div class="project-content">
+                        <div class="project-header">
+                            <i class="fas fa-folder-open folder-icon"></i>
+                            <!-- 🔹 TODO: Insert your GitHub URL here (this portfolio repo) -->
+                            <a href="https://github.com/mattiabandini1/J-Pairwise" class="github-link" target="_blank"
+                                rel="noopener">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                        <h3>J-Pairwise</h3>
+                        <p>
+                            An intelligent Java CLI tool designed to solve combinatorial explosion in software testing.
+                            It implements the IPOG algorithm to minimize test cases and acts as a metaprogramming
+                            engine to auto-generate compile-ready JUnit 5 code.
+                        </p>
+                        <div class="tags">
+                            <span>Java</span>
+                            <span>JUnit 5</span>
+                            <span>Algorithms</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================ -->
                 <!-- PROJECT 1: FileInspector (ACTIVE)           -->
                 <!-- ============================================ -->
                 <div class="project-card">
@@ -188,6 +270,8 @@
                         <p>
                             A pure Bash CLI utility designed to visualize Linux file permissions and ownership
                             instantly. Born as a system programming experiment, it simplifies low-level file analysis.
+                            Started as an exam exercise for my Operating Systems course, it evolved into a practical
+                            terminal utility
                         </p>
                         <div class="tags">
                             <span>Bash</span>
@@ -236,46 +320,10 @@
                         </div>
                     </div>
                 </div>
-                <!-- ============================================ -->
-                <!-- PROJECT 3: J-Pairwise (ACTIVE)               -->
-                <!-- ============================================ -->
-                <div class="project-card">
-                    <!-- Window Frame with macOS-style dots -->
-                    <div class="project-frame">
-                        <div class="window-titlebar">
-                            <div class="window-dots">
-                                <span class="dot red"></span>
-                                <span class="dot yellow"></span>
-                                <span class="dot green"></span>
-                            </div>
-                        </div>
-                        <div class="project-image">
-                            <img src="assets/J-Pairwise.png" alt="J-Pairwise Project">
-                        </div>
-                    </div>
 
-                    <div class="project-content">
-                        <div class="project-header">
-                            <i class="fas fa-folder-open folder-icon"></i>
-                            <!-- 🔹 TODO: Insert your GitHub URL here (this portfolio repo) -->
-                            <a href="https://github.com/mattiabandini1/J-Pairwise" class="github-link" target="_blank"
-                                rel="noopener">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                        <h3>J-Pairwise</h3>
-                        <p>
-                            An intelligent Java CLI tool designed to solve combinatorial explosion in software testing.
-                            It implements the IPOG algorithm to minimize test cases and acts as a metaprogramming
-                            engine to auto-generate compile-ready JUnit 5 code.
-                        </p>
-                        <div class="tags">
-                            <span>Java</span>
-                            <span>JUnit 5</span>
-                            <span>Algorithms</span>
-                        </div>
-                    </div>
-                </div>
+
+
+
             </div>
         </div>
     </section>

@@ -351,17 +351,28 @@ h4 {
    Skills Section (Tech Cards)
    ======================================== */
 .skills-section {
-    padding: var(--spacing-xl) 0;
+    padding: 120px 0; /* Increased for breathing room */
 }
 
-/* Fluid Flexbox Layout */
+/* 5x2 Mathematical Grid */
 .tech-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
     max-width: 900px;
     margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .tech-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 .tech-card {
@@ -371,13 +382,11 @@ h4 {
     padding: var(--spacing-md);
     text-align: center;
     transition: var(--transition);
-    /* Fixed size for uniform cards in flex */
-    width: 140px;
-    height: 110px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-height: 110px; /* Allow dynamic width while maintaining height */
 }
 
 .tech-card:hover {
@@ -408,13 +417,16 @@ h4 {
    Projects Section
    ======================================== */
 .projects-section {
-    padding: var(--spacing-xl) 0;
+    padding: 120px 0; /* Increased for breathing room */
 }
 
+/* Premium Immersive Layout */
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: 6rem; /* Generous gap between large projects */
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .project-card {
@@ -422,17 +434,29 @@ h4 {
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
     padding: 0;
-    /* Remove padding to let frame touch edges */
-    transition: var(--transition);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Smoother premium transition */
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* 50/50 split on desktop */
     overflow: hidden;
+    width: 100%; /* Take full width of max-width container */
+}
+
+/* Alternating layout for even projects */
+.project-card:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+@media (max-width: 900px) {
+    .project-card, .project-card:nth-child(even) {
+        flex-direction: column;
+    }
 }
 
 .project-card:hover {
     background: var(--bg-card-hover);
     border-color: rgba(255, 255, 255, 0.15);
-    transform: translateY(-4px);
+    transform: translateY(-8px); /* Deeper lift for large cards */
+    box-shadow: 0 20px 40px -10px rgba(0, 240, 255, 0.05); /* Subtle immersive glow */
 }
 
 /* ==========================================
@@ -441,14 +465,29 @@ h4 {
 
 /* Container for the entire window frame */
 .project-frame {
-    width: 100%;
+    width: 50%; /* 50/50 split */
     background: rgba(255, 255, 255, 0.02);
-    border-radius: var(--radius) var(--radius) 0 0;
     overflow: hidden;
-    /* CRITICAL: Border to separate from dark backgrounds */
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    /* Separator between frame and content */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1); /* Separator to content */
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:nth-child(even) .project-frame {
+    border-right: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 900px) {
+    .project-frame {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .project-card:nth-child(even) .project-frame {
+        border-left: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
 }
 
 /* Window titlebar with macOS-style dots */
@@ -491,10 +530,10 @@ h4 {
 /* Project Images (inside the frame) */
 .project-image {
     width: 100%;
-    height: 150px;
+    flex-grow: 1; /* Take up vertical space */
+    min-height: 320px; /* Taller space for large scale details */
     overflow: hidden;
-    background: rgba(0, 0, 0, 0.4);
-    /* Darker background for contrast */
+    background: rgba(0, 0, 0, 0.4); /* Darker background for contrast */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -506,12 +545,12 @@ h4 {
     width: auto;
     height: auto;
     object-fit: contain;
-    transition: var(--transition);
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 /* Hover effect: zoom image inside frame */
 .project-card:hover .project-image img {
-    transform: scale(1.05);
+    transform: scale(1.08); /* Slightly more prominent zoom for impact */
 }
 
 /* ==========================================
@@ -519,12 +558,18 @@ h4 {
    ========================================== */
 
 .project-content {
-    padding: var(--spacing-lg);
-    flex-grow: 1;
+    padding: var(--spacing-xl); /* Increased padding for large cards */
+    width: 50%;
     display: flex;
     flex-direction: column;
-    /* SPACING: Increased top margin for breathing room */
-    margin-top: 1.5rem;
+    justify-content: center; /* Vertically center content */
+}
+
+@media (max-width: 900px) {
+    .project-content {
+        width: 100%;
+        padding: var(--spacing-lg);
+    }
 }
 
 .project-header {
@@ -666,6 +711,8 @@ h4 {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: var(--spacing-lg);
+    max-width: 1000px; /* Align with new project max-width */
+    margin: 0 auto;
 }
 
 .gui-window {
